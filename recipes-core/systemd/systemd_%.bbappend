@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
-PACKAGECONFIG_append = " networkd resolved"
+PACKAGECONFIG_append = " networkd resolved "
 
 SRC_URI += "file://wired.network \
             file://wireless.network \
