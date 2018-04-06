@@ -6,3 +6,4 @@ DHCP=ipv4
 
 [DHCP]
 RouteMetric=20
+ClientIdentifier=mac
