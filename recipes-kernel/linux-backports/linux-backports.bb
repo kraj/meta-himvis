@@ -33,3 +33,6 @@ FILES_${PN} += "${nonarch_base_libdir}/udev \
                 ${sysconfdir}/udev \
 		${nonarch_base_libdir} \
                "
+
+EXCLUDE_FROM_WORLD = "1"
+
