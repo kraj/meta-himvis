@@ -1,0 +1,25 @@
+From 2d9b18c41861f4575cf9b223fd1973ca6051075d Mon Sep 17 00:00:00 2001
+From: Shan Desai <des@biba.uni-bremen.de>
+Date: Mon, 22 Oct 2018 11:47:06 +0200
+Subject: [PATCH] Non-root user in Makefile
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index b9da29f..e75a963 100755
+--- a/Makefile
++++ b/Makefile
+@@ -39,7 +39,7 @@ clean:
+ 	
+ install: rel/$(PLATFORM)/analyzer $(DESTDIR)$(BINDIR) $(DESTDIR)$(CONFDIR)
+ 	for i in rel/$(PLATFORM)/* util/* */*_monitor; do f=`basename $$i`; echo $$f; rm -f $(DESTDIR)$(BINDIR)/$$f; cp $$i $(DESTDIR)$(BINDIR); done
+-	for i in config/*; do install -g $(ROOT_GID) -o $(ROOT_UID) -m $(ROOT_MOD) $$i $(DESTDIR)$(CONFDIR); done
++	for i in config/*; do install -m 0644 $$i $(DESTDIR)$(CONFDIR); done
+ 	-killall -9 actisense-serial n2kd socketcan-writer || echo 'No running processes killed'
+ 
+ zip:
+-- 
+2.11.0
+
